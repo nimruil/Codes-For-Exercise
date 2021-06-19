@@ -9,8 +9,4 @@ void InsertionSort(int *array, int arraySize) {
     }
     array[j + 1] = key;
   }
-  //   for (k = 0; k < arraySize; k++) {
-  //     printf("%d ", *(aPtr + k));
-  //   }
-  //   printf("\n\n");
 }
