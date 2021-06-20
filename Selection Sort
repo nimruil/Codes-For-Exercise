@@ -1,6 +1,6 @@
 void SelectionSort(int array[], int arraySize) {
   int smallestNumber, index, i, j, temp;
-  for (i = 0; i < arraySize; i++) {
+  for (i = 0; i < arraySize-1; i++) {
     smallestNumber = 99;
     for (j = i; j < arraySize; j++) {
       if (array[j] < smallestNumber) {
