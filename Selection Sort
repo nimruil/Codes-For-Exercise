@@ -1,0 +1,15 @@
+void SelectionSort(int array[], int arraySize) {
+  int smallestNumber, index, i, j, temp;
+  for (i = 0; i < arraySize; i++) {
+    smallestNumber = 99;
+    for (j = i; j < arraySize; j++) {
+      if (array[j] < smallestNumber) {
+        smallestNumber = array[j];
+        index = j;
+      }
+    }
+    temp = array[i];
+    array[i] = array[index];
+    array[index] = temp;
+  }
+}
