@@ -1,3 +1,5 @@
+// C implementation
+
 void InsertionSort(int *array, int arraySize) {
   int i, j, key;
   for (i = 1; i < arraySize; i++) {
