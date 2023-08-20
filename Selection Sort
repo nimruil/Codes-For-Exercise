@@ -1,3 +1,5 @@
+// C implementation
+
 void SelectionSort(int array[], int arraySize) {
   int smallestNumber, index, i, j, temp;
   for (i = 0; i < arraySize-1; i++) {
