@@ -1,2 +1,2 @@
-# Algorithms
-C implementations of various algorithms
+# Exercise Codes
+Implementations of various algorithms
