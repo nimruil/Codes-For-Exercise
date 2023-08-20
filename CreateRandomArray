@@ -1,3 +1,5 @@
+// C implementation
+
 void CreateRandomArray() {
   int *aPtr, arraySize, i = 0, j, hasValue = 0, temp;
   printf("Array size?: ");
