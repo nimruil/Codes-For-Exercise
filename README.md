@@ -1,2 +1,2 @@
-# Exercise Codes
-Implementations of various algorithms
+# Codes for Various Tasks
+Implementations of various algorithms and tasks
