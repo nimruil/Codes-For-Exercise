@@ -20,14 +20,14 @@ def Insert(root, key):
 
     if previousNode.val > nodeToAdd.val:
         previousNode.left = nodeToAdd
-        print(str(nodeToAdd.val) + ", " + str(previousNode.val) + " in soluna eklendi.")
+        print(str(nodeToAdd.val) + ", was added to the left of " + str(previousNode.val))
     else:
         previousNode.right = nodeToAdd
-        print(str(nodeToAdd.val) + ", " + str(previousNode.val) + " in sagina eklendi.")
+        print(str(nodeToAdd.val) + ", was added to the right of " + str(previousNode.val))
 
 def Search(root,key):
     currentNode = root
-    print("Arama siralamasi: ")
+    print("Search order: ")
     keyFound = True
 
     while currentNode.val != key:
@@ -44,7 +44,7 @@ def Search(root,key):
     if currentNode != None:
         print(currentNode.val)
     if keyFound:
-        print("Sayi agacta mevcut")
+        print("Number exists on tree.")
 
 def print_tree(root, val="val", left="left", right="right"):
     def display(root, val=val, left=left, right=right):
@@ -98,14 +98,14 @@ def print_tree(root, val="val", left="left", right="right"):
 
 valueArray = [3,5,6,7,9,8,13,17,16,19,18,20,1]
 root = Node(15)
-print("Kok ve elemanlar kod icinden alinmistir.")
-print("Kok = " + str(root.val))
+print("Root and members taken from code")
+print("Root = " + str(root.val))
 for x in range(len(valueArray)):
     Insert(root,valueArray[x])
 input = 13
-print("Aranacak deger = " + str(input))
+print("Value to search = " + str(input))
 Search(root,input)
 print("")
-print("BST Agac Gosterimi")
+print("BST View")
 print("")
 print_tree(root)
