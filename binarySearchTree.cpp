@@ -29,18 +29,18 @@ void InsertToTree(Node *root, int key) {
   }
   if (previousNode->key > nodeToAdd->key) {
     previousNode->left = nodeToAdd;
-    cout << nodeToAdd->key << ", " << previousNode->key << " in soluna eklendi."
+    cout << nodeToAdd->key << ", was added to the left of " << previousNode->key
          << endl;
   } else {
     previousNode->right = nodeToAdd;
-    cout << nodeToAdd->key << ", " << previousNode->key << " in sagina eklendi."
+    cout << nodeToAdd->key << ", was added to the right of" << previousNode->key 
          << endl;
   }
 }
 
 void Search(Node *root, int key) {
   Node *currentNode = root;
-  cout << "Arama siralamasi: ";
+  cout << "Search order: ";
   bool keyFound = true;
   while (currentNode->key != key) {
     cout << currentNode->key << " -> ";
@@ -50,28 +50,28 @@ void Search(Node *root, int key) {
       currentNode = currentNode->right;
     if (currentNode == NULL) {
       keyFound = false;
-      cout << "\nSayi agacta mevcut degil." << endl;
+      cout << "\nNumber does not exist on tree." << endl;
       break;
     }
   }
   if (currentNode != NULL)
     cout << currentNode->key;
   if (keyFound)
-    cout << "\nSayi agacta mevcut." << endl;
+    cout << "\nNumber exists on tree." << endl;
 }
 
 int main() {
   int valueArray[] = {2, 3,  4,  6,  7,
-                      9, 13, 17, 18, 20}; // KOK HARIC BST ELEMANLARI
-  Node *root = new Node(15);              // KOK DEGERI
-  cout << "Kok ve elemanlar kod icinden alinmistir." << endl;
-  cout << "Kok = " << root->key << endl;
-  cout << "Elemanlar = 2, 3, 4, 6, 7, 9, 13, 17, 18, 20" << endl;
+                      9, 13, 17, 18, 20}; // BST MEMBERS OTHER THAN ROOT
+  Node *root = new Node(15);              // ROOT VALUE
+  cout << "Root and members taken from code." << endl;
+  cout << "Root = " << root->key << endl;
+  cout << "Members = 2, 3, 4, 6, 7, 9, 13, 17, 18, 20" << endl;
   int arraySize = sizeof(valueArray) / sizeof(valueArray[0]);
   for (int i = 0; i < arraySize; i++) {
     InsertToTree(root, valueArray[i]);
   }
-  cout << "Aranacak Deger:";
+  cout << "Member to search: ";
   int key;
   cin >> key;
   Search(root, key);
