@@ -13,7 +13,7 @@ extern inline void Swap(int *a, int *b) {
   *a = temp;
 }
 
-// FARKLI IKI STRING IN UZUNLUKLARINI VE ICERIKLERINI KIYASLAMA
+// C
 extern inline int CompareStrings() {
   char *str1, *str2;
   str1 = (char *)malloc(50 * sizeof(char));
