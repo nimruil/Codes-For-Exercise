@@ -6,18 +6,18 @@
 #include <queue>
 using namespace std;
   
-// ayrit sayisi
+// number of vertices
 #define V 6
   
-// kaynaktan hedefe yol varsa true, yoksa false
-// yolu parent array inde sakla
+// if there is a path from source to destination true, else false
+// keep path in array
 int bfs(int rGraph[V][V], int s, int t, int parent[])
 {
-    // gidilmis dugumler dizisi yap, baslangicta gidilmemis olarak isaretle
+    //make an array of visited nodes, mark them as not visited in the beginning
     bool visited[V];
     memset(visited, 0, sizeof(visited));
   
-    // siralama yarat, kaynak dugumu siraya ekle ve gidildi olarak isaretle
+    //make a queue, add source and mark it as visited
     queue <int> q;
     q.push(s);
     visited[s] = true;
@@ -40,11 +40,11 @@ int bfs(int rGraph[V][V], int s, int t, int parent[])
         }
     }
   
-    // hedefe BFS yoluya varabildiysek true, yoksa false
+    // if we reached destination with BFS true, else false
     return (visited[t] == true);
 }
   
-// kaynaktan gidilebilecek dugumleri bulan DFS fonksiyonu. BFS alternatifi
+// DFS which finds nodes that can be reached from source, alternative to BFS
 void dfs(int rGraph[V][V], int s, bool visited[])
 {
     visited[s] = true;
@@ -67,7 +67,7 @@ void minCut(int graph[V][V], int s, int t)
     int max_flow = 0;
     while (bfs(rGraph, s, t, parent))
     {
-	// bulunan yoldaki maksimum akis
+	// maximum flow in the current path
         int path_flow = INT_MAX;
         for (v=t; v!=s; v=parent[v])
         {
@@ -75,7 +75,7 @@ void minCut(int graph[V][V], int s, int t)
             path_flow = min(path_flow, rGraph[u][v]);
         }
             max_flow += path_flow;
-        // kapasite revizyonlari
+        // capacity revisions
         for (v=t; v != s; v=parent[v])
         {
             u = parent[v];
@@ -87,13 +87,13 @@ void minCut(int graph[V][V], int s, int t)
     bool visited[V];
     memset(visited, false, sizeof(visited));
     dfs(rGraph, s, visited);
-    cout << "Maksimum akis = " << max_flow <<endl;
+    cout << "Max flow = " << max_flow <<endl;
     int cut_counter = 1;
     for (int i = 0; i < V; i++)
       for (int j = 0; j < V; j++)
          if (visited[i] && !visited[j] && graph[i][j])
          {
-             cout << cut_counter << ". kesim = ";
+             cout << cut_counter << ". cut = ";
              cout << i+1 << " - " << j+1 << endl;
              cut_counter++;
          }
